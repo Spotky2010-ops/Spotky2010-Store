@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotky2010 Store | Official Merch &amp; Gear</title>
+  <!-- Google Font: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-dark: #070b19;
+      --card-bg: #101730;
+      --neon-cyan: #00f0ff;
+      --neon-magenta: #d900ff;
+      --neon-blue: #2b59ff;
+      --text-main: #ffffff;
+      --text-muted: #a5b4fc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header & Navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      background: rgba(7, 11, 25, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 2px solid var(--neon-cyan);
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    }
+
+    .brand span {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .brand span strong {
+      color: var(--neon-cyan);
+    }
+
+    .cart-badge {
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-magenta));
+      padding: 0.5rem 1.1rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+      color: #fff;
+      box-shadow: 0 0 15px rgba(217, 0, 255, 0.4);
+      transition: transform 0.2s ease;
+    }
+
+    .cart-badge:hover {
+      transform: scale(1.05);
+    }
+
+    /* Hero Banner */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 4.5rem 5%;
+      background: linear-gradient(rgba(7, 11, 25, 0.72), rgba(7, 11, 25, 0.92)),
+                  url('Spotky2010 First Wallpaper.jpeg') center/cover no-repeat;
+      border-bottom: 2px solid rgba(217, 0, 255, 0.3);
+    }
+
+    .hero-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid var(--neon-cyan);
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
+      margin-bottom: 1rem;
+      object-fit: cover;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      font-weight: 600;
+      max-width: 650px;
+      margin: 0 auto 1.5rem;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3.5rem 5%;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      border-left: 4px solid var(--neon-cyan);
+      padding-left: 12px;
+    }
+
+    .catalog-pill {
+      background: rgba(0, 240, 255, 0.12);
+      color: var(--neon-cyan);
+      border: 1px solid var(--neon-cyan);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--neon-cyan);
+      box-shadow: 0 10px 30px rgba(0, 240, 255, 0.2);
+    }
+
+    .product-img-wrap {
+      width: 100%;
+      height: 240px;
+      background: #0b1024;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .more-products-banner {
+      background: linear-gradient(135deg, #162147, #2b114d);
+      flex-direction: column;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .more-products-banner .big-plus {
+      font-size: 3.2rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .product-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .price {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--neon-cyan);
+    }
+
+    .price span {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .btn-buy {
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-blue));
+      color: #050814;
+      font-weight: 800;
+      border: none;
+      padding: 0.65rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-buy:hover {
+      opacity: 0.9;
+      transform: scale(1.03);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--neon-magenta);
+      border: 2px solid var(--neon-magenta);
+      font-weight: 700;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.2s ease;
+    }
+
+    .btn-outline:hover {
+      background: var(--neon-magenta);
+      color: #fff;
+    }
+
+    /* Follow Links Section */
+    .social-section {
+      background: linear-gradient(180deg, rgba(16, 23, 48, 0.6), rgba(7, 11, 25, 1));
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 3.5rem 5%;
+      text-align: center;
+    }
+
+    .social-section h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .social-section p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.85rem 1.8rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+      background: var(--card-bg);
+      border: 1px solid rgba(0, 240, 255, 0.35);
+      transition: all 0.25s ease;
+    }
+
+    .social-btn:hover {
+      border-color: var(--neon-magenta);
+      box-shadow: 0 0 20px rgba(217, 0, 255, 0.4);
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Toast notification */
+    #toast {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--neon-cyan);
+      color: #070b19;
+      font-weight: 800;
+      padding: 0.9rem 1.4rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 240, 255, 0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 200;
+    }
+
+    #toast.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="brand">
+      <img src="Spotky2010 Profile.jpeg" alt="Spotky2010 Logo" />
+      <span>Spotky<strong>2010</strong> Store</span>
+    </a>
+    <button class="cart-badge" onclick="showToast('Cart items: ' + cartCount)">
+      Cart (<span id="cart-count">0</span>)
+    </button>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="Spotky2010 Profile.jpeg" alt="Spotky2010 Avatar" class="hero-avatar" />
+    <h1>Spotky2010 Store</h1>
+    <p>Gaming Enthusiast | Content Creator | Community Member | Leveling up since 2010</p>
+  </section>
+
+  <!-- Store Catalog -->
+  <main class="container">
+    <div class="section-header">
+      <h2>Featured Merch</h2>
+      <span class="catalog-pill">+20 Products Available</span>
+    </div>
+
+    <div class="product-grid">
+      <!-- Product 1: A4 Photo Frame -->
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="Spotky2010 Neon Gaming Poster.png" alt="A4 Photo Frame" />
+        </div>
+        <div class="product-info">
+          <div>
+            <h3 class="product-title">A4 Photo Frame</h3>
+            <p class="product-desc">High-gloss neon gaming print in a sleek black A4 frame for your setup.</p>
+          </div>
+          <div class="product-footer">
+            <div class="price">$2.50 <span>AUD</span></div>
+            <button class="btn-buy" onclick="addToCart('A4 Photo Frame')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2: Neon Gaming Mug -->
+      <div class="product-card">
+        <div class="product-img-wrap">
+          <img src="Spotky2010 Neon Gaming Mug.png" alt="Spotky2010 Mug" />
+        </div>
+        <div class="product-info">
+          <div>
+            <h3 class="product-title">Spotky2010 Mug</h3>
+            <p class="product-desc">Ceramic gaming mug featuring the signature Spotky2010 cyber-mountain art.</p>
+          </div>
+          <div class="product-footer">
+            <div class="price">$1.80 <span>AUD</span></div>
+            <button class="btn-buy" onclick="addToCart('Spotky2010 Mug')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- +20 Products Card -->
+      <div class="product-card">
+        <div class="product-img-wrap more-products-banner">
+          <div class="big-plus">+20</div>
+          <div style="font-weight: 700; color: #fff; margin-top: 6px;">More Products</div>
+        </div>
+        <div class="product-info">
+          <div>
+            <h3 class="product-title">Full Merch Collection</h3>
+            <p class="product-desc">Explore stickers, desk mats, wallpapers, badges, and over 20 more items in the full catalog.</p>
+          </div>
+          <div class="product-footer">
+            <button class="btn-outline" onclick="showToast('Opening full +20 products catalog...')">Browse +20 Products</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Follow Links -->
+  <section class="social-section">
+    <h2>Follow More Of Spotky2010</h2>
+    <p>Check out games, open-source code, and creative web experiments:</p>
+    <div class="social-links">
+      <a href="https://itch.io" target="_blank" rel="noopener noreferrer" class="social-btn">
+        🎮 itch.io
+      </a>
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn">
+        💻 GitHub.com
+      </a>
+      <a href="https://codepen.io" target="_blank" rel="noopener noreferrer" class="social-btn">
+        ✨ CodePen.io
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2026 Spotky2010 Store. All prices in AUD.
+  </footer>
+
+  <!-- Notification Toast -->
+  <div id="toast">Added to cart!</div>
+
+  <script>
+    let cartCount = 0;
+
+    function addToCart(itemName) {
+      cartCount++;
+      document.getElementById('cart-count').textContent = cartCount;
+      showToast(`Added "${itemName}" to cart!`);
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+  </script>
+
+</body>
+</html>
